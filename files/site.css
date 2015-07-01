@@ -1,0 +1,198 @@
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #191919;
+  font-family: Futura;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.button {
+  margin: auto;
+  background: #191919;
+
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 150px;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.button:hover {
+  background: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.get-chrome {
+  text-align: center;
+  margin: auto;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 14px;
+  color: rgb(176, 37, 37);
+}
+
+.main-text {
+  background: #fff;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  position: absolute;
+  color: #000;
+  padding: 60px 0;
+  text-align: center;
+  top: 50%;
+  margin-top: -250px;
+}
+
+.favorites {
+  width: 207;
+  display: none;
+  z-index: 50;
+  background: #191919;
+  height: 100%;
+  padding: 20px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  position: absolute;
+  overflow: scroll;
+  left: 0;
+  top: 0;
+  color: #B3B3B3;
+}
+
+.favorites .items img {
+  cursor: pointer;
+  height: 135px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+
+ul {
+width: 100%;
+list-style-type: none;
+position: relative;
+top: 20px;
+left: 86px;
+
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.item {
+  background: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*box-shadow: -5px 0px 18px 5px rgba(0,0,0,0.75);*/
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+  z-index: 100;
+}
+
+.button-text {
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.action-buy {
+  border-left: solid 1px #313131;
+  padding-left: 20px;
+  font-size: 12px;
+  height: 44px;
+
+  float: right;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.action-favorite {
+  border-left: solid 1px #313131;
+  padding-left: 20px;
+  color: #9F9F9F;
+  height: 44px;
+  font-size: 12px;
+  float: right;
+  text-align: center;
+
+}
+
+.artist {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 2px;
+  padding-right: 7px;
+}
+
+.left {
+  font-size: 12px;
+  color: #979F9F;
+  margin-top: 5px;
+  min-width: 186px;
+  float: left;
+}
+
+.price {
+  margin-right: 10px;
+
+}
+
+.info {
+  background: #191919;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  bottom: 40px;
+  border: solid 1px #979F9F;
+  border-right: 0;
+  box-shadow: 3px 4px 12px #393939;
+  color: #fff;
+  font-family: Futura;
+  padding: 15px 20px;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.info a {
+  color: #9F9F9F;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
