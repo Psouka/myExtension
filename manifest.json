@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "TwitChat",
+  "name": "myExtension",
   "description": "twitch chat on other Pages",
   "version": "1.0",
 
@@ -10,12 +10,18 @@
    "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["eventPage.js"],
+    "scripts": ["popup.js"],
     "persistent": false
   },
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*"],
+      "js": ["files/jquery.js","eventPage.js"]
+    }
+  ],
   "permissions": [
    "alarms", "tabs", "bookmarks", "*://*/*"
    ]
