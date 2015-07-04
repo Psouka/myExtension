@@ -11,7 +11,7 @@
       if (EMOTES.hasOwnProperty(i)){ // escape metacharacters
         patterns.push('('+i.replace(metachars, "\\$&")+')');
       }
-    }
+  }
 
     var PATTERN = new RegExp(patterns.join('|'),'g');
     var URL = "https://static-cdn.jtvnw.net/jtv_user_pictures/";
@@ -24,20 +24,17 @@
       return s;
     }
 
-
+    var child = null;
+    var textChanged = null;
     function dynamically_replace() {
       $("._5yl5").each(function( index ) {
         $( this ).removeClass('_5yl5').addClass('_5yl5_');
-        var child = $( this ).children( "span" );
-        var textChanged = replaceEmoticons(child.text());
+        child = $( this ).children( "span" );
+        textChanged = replaceEmoticons(child.text());
         child.html(textChanged);
       });
     }
 
 
-    $( document ).ready(function() {
 
-      dynamically_replace();
-      document.addEventListener('DOMNodeInserted', dynamically_replace, false);
-
-    });
+    document.addEventListener('DOMNodeInserted', dynamically_replace, false);
