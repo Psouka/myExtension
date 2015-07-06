@@ -14,7 +14,7 @@
     "persistent": false
   },
   "chrome_url_overrides" : {
-    "newtab": "index.html"
+    "newtab": "newPage.html"
   },
   "content_scripts": [
     {

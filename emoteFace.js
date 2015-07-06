@@ -10,7 +10,7 @@
       if (EMOTES.hasOwnProperty(i)){ // escape metacharacters
         patterns.push('('+i.replace(metachars, "\\$&")+')');
       }
-  }
+    }
 
     var PATTERN = new RegExp(patterns.join('|'),'g');
     var URL = "https://static-cdn.jtvnw.net/jtv_user_pictures/";
@@ -32,6 +32,28 @@
       });
     }
 
-$('body').on('DOMNodeInserted', '._5yl5', function(e) {
-   dynamically_replace();
+    // Create a MutationObserver to handle events
+    var BreakException= {};
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        try {
+          [].slice.call(mutation.addedNodes).forEach(function (addedNode) {
+
+            if ((" " + addedNode.className + " ").indexOf("_5wd4") > -1) {
+              dynamically_replace();
+              throw BreakException;
+            }
+          });
+        } catch(e) {
+          if (e!==BreakException) throw e;
+        }
+      });            
+    });
+
+// Start observing "childList" events in document and its descendants
+observer.observe(document, {
+ childList: true,
+ subtree:true,
+ characterData:true,
+ attributes:true  
 });
