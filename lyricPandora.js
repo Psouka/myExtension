@@ -15,15 +15,18 @@ function dynamically_replace() {
 		songBefore = song;
 	}
 
-	var link = "https://rdiolyrics.com/?hash&artist=" + artist + "&song=" + song;
+	//var link = "https://rdiolyrics.com/?hash&artist=" + artist + "&song=" + song;
 	//console.log(link);
 
+	var link = "http://api.vagalume.com.br/search.php" + "?art=" + artist + "&mus=" + song;
+
 	$.get(link,function(data){
-		var Re = new RegExp("</p>","g");
-		data = data.replace(Re, "</p><br>");
+		//var Re = new RegExp("</p>","g");
+		//data = data.replace(Re, "</p><br>");
+		console.log(data);
 		$('#myLyric').remove();
 		$('#trackDetail').append(
-			'<div id="myLyric" class="item lyrics" style="display: block;"><div class="close1"></div><div class="heading">Lyrics</div><div class="itemContent"><div class="threelineshigh" style="max-height: none;">'+ data +'</div></div><div class="divider"></div></div>'
+			'<div id="myLyric" class="item lyrics" style="display: block;"><div class="close1"></div><div class="heading">Lyrics</div><div class="itemContent"><div class="threelineshigh" style="max-height: none;"><pre style="padding: 0px;" >'+ data.mus[0].text +'</pre></div></div><div class="divider"></div></div>'
 			);
 	});
 
@@ -32,19 +35,20 @@ function dynamically_replace() {
 
 var BreakException= {};
 var observer = new MutationObserver(function (mutations) {
-
-	mutations.forEach(function (mutation) {
-		try {
+	try {
+		mutations.forEach(function (mutation) {
+			
 			[].slice.call(mutation.addedNodes).forEach(function (addedNode) {
 				if ((" " + addedNode.className + " ").indexOf("showFullBio") > -1) {
 					dynamically_replace();
 					throw BreakException;
 				}
 			});
-		} catch(e) {
-			if (e!==BreakException) throw e;
-		}
-	});            
+			
+		}); 
+	} catch(e) {
+		if (e!==BreakException) throw e;
+	}           
 });
 
 // Start observing "childList" events in document and its descendants

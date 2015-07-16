@@ -6,6 +6,7 @@
   // build a regex pattern for each defined property
   var metachars = /[[\]{}()*+?.\\|^$\-,&#\s]/g;
   var patterns = [];
+
   for (var i in EMOTES) {
       if (EMOTES.hasOwnProperty(i)){ // escape metacharacters
         patterns.push('('+i.replace(metachars, "\\$&")+')');
@@ -35,8 +36,9 @@
     // Create a MutationObserver to handle events
     var BreakException= {};
     var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        try {
+      try {
+        mutations.forEach(function (mutation) {
+          
           [].slice.call(mutation.addedNodes).forEach(function (addedNode) {
 
             if ((" " + addedNode.className + " ").indexOf("_5wd4") > -1) {
@@ -44,10 +46,11 @@
               throw BreakException;
             }
           });
-        } catch(e) {
-          if (e!==BreakException) throw e;
-        }
-      });            
+          
+        });
+      } catch(e) {
+        if (e!==BreakException) throw e;
+      }            
     });
 
 // Start observing "childList" events in document and its descendants
