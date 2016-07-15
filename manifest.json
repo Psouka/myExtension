@@ -16,16 +16,6 @@
   "chrome_url_overrides" : {
     "newtab": "newPage.html"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://www.facebook.com/*"],
-      "js": ["js/jquery.js","emoteFace.js"]
-    },
-  {
-    "matches": ["http://www.pandora.com/*"],
-    "js": ["js/jquery.js","lyricPandora.js"]
-  }
-  ],
   "permissions": [
    "alarms", "tabs", "bookmarks", "*://*/*"
    ]
